@@ -1,0 +1,17 @@
+<!-- task_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Task List</h2>
+    
+        {% for task in tasks %}
+           <h4>{{ task.name }}</h4>
+            <p>{{task.priority}}</p>
+            <p>{{task.date}}</p>
+           <button class="btn btn-danger"> <a href="{% url 'task_delete' task.id %}">Delete</a></button>
+           <button class="btn btn-warning"><a href="{% url 'task_update' task.id %}">Update</a></button>
+
+            <br>
+        {% endfor %}
+    </ul>
+{% endblock %}
